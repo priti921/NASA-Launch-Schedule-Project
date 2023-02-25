@@ -3,10 +3,13 @@ import { Appear, Button, Loading, Paragraph } from "arwes";
 import Clickable from "../components/Clickable";
 
 const Launch = props => {
+  // console.log(props.planets)
   const selectorBody = useMemo(() => {
-    return (props.planets || []).map(planet => 
-      <option value={planet.keplerName} key={planet.keplerName}>{planet.keplerName}</option>
-    );
+    return Array.isArray(props.planets)? props.planets.map((planet,index) => {
+      // console.log(planet.kepler_name);
+      return <option value={planet.kepler_name} key={index}>{planet.kepler_name}</option>
+      } 
+    ) : [];
   }, [props.planets]);
 
   const today = new Date().toISOString().split("T")[0];

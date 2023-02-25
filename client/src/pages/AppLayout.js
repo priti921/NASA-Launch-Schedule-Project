@@ -59,6 +59,7 @@ const AppLayout = props => {
   } = useLaunches(onSuccessSound, onAbortSound, onFailureSound);
 
   const planets = usePlanets();
+  // console.log(planets)
   
   return <div className={classes.content}>
     <Header onNav={animateFrame} />

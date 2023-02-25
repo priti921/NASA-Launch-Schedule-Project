@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 
 import { httpGetPlanets } from "./requests";
-
+// console.log( httpGetPlanets())
 function usePlanets() {
   const [planets, savePlanets] = useState([]);
 
@@ -13,8 +13,9 @@ function usePlanets() {
   useEffect(() => {
     getPlanets();
   }, [getPlanets]);
-
-  return planets;
+  // console.log(planets.planets);
+//fking why it's returning as an object
+  return planets.planets;
 }
 
 export default usePlanets;
