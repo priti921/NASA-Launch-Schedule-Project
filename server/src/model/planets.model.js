@@ -1,5 +1,6 @@
-const {parse} = require('csv-parse');
 const fs = require('fs');
+const path = require('path')
+const {parse} = require('csv-parse');
 
 const exoplanet = [];
 
@@ -9,7 +10,7 @@ let isHabitable =(planet)=>{
     && planet['koi_prad'] < 1.6;
 }
 
-fs.createReadStream('kepler_data.csv')
+fs.createReadStream(path.join(__dirname, '..', '..', 'data', 'kepler_data.csv'))
     .pipe(parse({
         comment: '#',
         columns: true
