@@ -35,7 +35,7 @@ function loadPlanets (){
             // }))
             // console.log(`number of habitable planets found: ${exoplanet.length}`);
             // console.log('all done')
-            resolve();
+            resolve(exoplanet);
         })
 
 
