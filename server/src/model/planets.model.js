@@ -30,12 +30,12 @@ function loadPlanets (){
             reject(err);
         })
         .on('end', () => {
-            console.log(exoplanet.map((planet)=>{
-                return planet['kepler_name'];
-            }))
-            console.log(`number of habitable planets found: ${exoplanet.length}`);
-            console.log('all done')
-            resolve(exoplanet);
+            // console.log(exoplanet.map((planet)=>{
+            //     return planet['kepler_name'];
+            // }))
+            // console.log(`number of habitable planets found: ${exoplanet.length}`);
+            // console.log('all done')
+            resolve();
         })
 
 
