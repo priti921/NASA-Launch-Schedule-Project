@@ -1,0 +1,27 @@
+{
+  "name": "nasa-launch-schedule-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "npm install --prefix server",
+    "install-client":"npm install --prefix client",
+    "install": "npm run install-server && npm run install-client",
+    "client": "npm run start --prefix client",
+    "server": "npm run watch --prefix server",
+    "watch": "npm run client & npm run server",
+    "test": "npm run test --prefix server && npm run test --prefix client"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priti921/NASA-Launch-Schedule-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priti921/NASA-Launch-Schedule-Project/issues"
+  },
+  "homepage": "https://github.com/priti921/NASA-Launch-Schedule-Project#readme"
+}
