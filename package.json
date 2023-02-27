@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "install-server": "npm install --prefix server",
-    "install-client":"npm install --prefix client",
+    "install-client": "npm install --prefix client",
     "install": "npm run install-server && npm run install-client",
     "client": "npm run start --prefix client",
     "server": "npm run watch --prefix server",
     "watch": "npm run client & npm run server",
+    "deploy": "npm run build --prefix client && npm start server --prefix server",
     "test": "npm run test --prefix server && npm run test --prefix client"
-    
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/priti921/NASA-Launch-Schedule-Project/issues"
   },
-  "homepage": "https://github.com/priti921/NASA-Launch-Schedule-Project#readme"
+  "homepage": "https://github.com/priti921/NASA-Launch-Schedule-Project#readme",
+  "dependencies": {
+    "morgan": "^1.10.0"
+  }
 }
