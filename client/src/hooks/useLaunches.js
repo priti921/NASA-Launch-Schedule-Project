@@ -32,9 +32,11 @@ function useLaunches(onSuccessSound, onAbortSound, onFailureSound) {
       mission,
       rocket,
       target,
+
     });
 
     const success = response.ok;
+    console.log(success)
     if (success) {
       getLaunches();
       setTimeout(() => {
