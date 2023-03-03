@@ -33,7 +33,7 @@ function addNewLaunch(launchData) {
 }
 
 function abortLaunchById(id) {
-  const abort = launches.delete(id);
+  const abort = launches.get(id);
   abort.success = false;
   abort.upcoming = false;
 }
