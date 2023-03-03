@@ -11,7 +11,9 @@
     "server": "npm run watch --prefix server",
     "watch": "npm run client & npm run server",
     "deploy": "npm run build --prefix client && npm start server --prefix server",
-    "test": "npm run test --prefix server && npm run test --prefix client"
+    "test": "npm run test --prefix server && npm run test --prefix client",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "repository": {
     "type": "git",
@@ -23,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/priti921/NASA-Launch-Schedule-Project/issues"
   },
-  "homepage": "https://github.com/priti921/NASA-Launch-Schedule-Project#readme"
+  "homepage": "https://github.com/priti921/NASA-Launch-Schedule-Project#readme",
+  "dependencies": {
+    "prettier": "^2.8.4"
+  }
 }

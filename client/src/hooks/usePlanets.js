@@ -14,9 +14,9 @@ function usePlanets() {
     getPlanets();
   }, [getPlanets]);
   // console.log(planets.planets);
-//fking why it's returning as an object
+  //fking why it's returning as an object
   // return planets.planets;
-  return planets
+  return planets;
 }
 
 export default usePlanets;
