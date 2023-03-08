@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { Appear, Table, Paragraph } from "arwes";
 
 const History = (props) => {
-  console.log(props)
+  console.log(props);
   const tableBody = useMemo(() => {
     return props.launches
       ?.filter((launch) => !launch.upcoming)
