@@ -46,7 +46,7 @@ function addNewLaunch(launchData) {
 
 //aborting launch by changing their success and upcoming to false
 function abortLaunchById(id) {
-  const abort = launches.get(id);
+  const abort = launches.get(id); //gets the object associated to the object and upon change the original object gets modified 
   abort.success = false;
   abort.upcoming = false;
 }
@@ -55,7 +55,6 @@ function abortLaunchById(id) {
 //the launch model gets added to the launches map with a key and a value
 launches.set(launch.flightNumber, launch);
 
-console.log(launches);
 
 module.exports = {
   getAllLaunches,
