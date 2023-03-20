@@ -5,8 +5,22 @@ const http = require("http");
 const { loadPlanets } = require("./model/planets.model");
 const PORT = process.env.PORT || 8000;
 const server = http.createServer(app);
+const mongoose = require('mongoose')
+
+
+//connecting mongodb
+const MONGO_URL = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@nasacluster.f4iu3on.mongodb.net/?retryWrites=true&w=majority`
+
+mongoose.connection.once('open', () => {
+  console.log('MongoDB connection ready!')
+})
+
+mongoose.connection.on('error', (err)=>{
+  console.log(err)
+})
 
 async function startServer() {
+  await mongoose.connect(MONGO_URL)
   await loadPlanets();
 
   server.listen(PORT, () => {
