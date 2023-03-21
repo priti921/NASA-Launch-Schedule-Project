@@ -14,7 +14,8 @@
     "deploy-cluster": "npm run build --prefix client && npm run cluster --prefix server",
     "test": "npm run test --prefix server && npm run test --prefix client",
     "format": "prettier --check --ignore-path .gitignore .",
-    "format:fix": "prettier --write --ignore-path .gitignore ."
+    "format:fix": "prettier --write --ignore-path .gitignore .",
+    "sync": "git status && git add . && git commit -m \"$npm_config_first\" && git push && git status"
   },
   "repository": {
     "type": "git",
