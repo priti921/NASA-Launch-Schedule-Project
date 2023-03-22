@@ -3,9 +3,7 @@ import { Appear, Button, Loading, Paragraph } from "arwes";
 import Clickable from "../components/Clickable";
 
 const Launch = (props) => {
-
   const selectorBody = useMemo(() => {
-    
     return Array.isArray(props.planets)
       ? props.planets.map((planet, index) => {
           return (

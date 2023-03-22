@@ -14,14 +14,13 @@ app.use(
   })
 );
 
-//logging 
+//logging
 app.use(morgan("combined"));
 
 //parses incoming json data
 app.use(express.json());
 //serves static frontend files
 app.use(express.static(path.join(__dirname, "..", "public")));
-
 
 //routes
 app.use(PlanetsRouter);

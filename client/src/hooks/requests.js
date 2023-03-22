@@ -30,7 +30,6 @@ async function httpSubmitLaunch(launch) {
       body: JSON.stringify(launch),
     });
   } catch (err) {
-    
     console.log(err);
     return {
       ok: false,
@@ -45,7 +44,6 @@ async function httpAbortLaunch(id) {
       method: "delete",
     });
   } catch (err) {
-
     console.log(err);
     return {
       ok: false,

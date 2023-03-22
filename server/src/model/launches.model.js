@@ -23,7 +23,6 @@ function existsLaunchById(id) {
 
 //getting all launches from this model
 function getAllLaunches() {
-
   //creates an array from launches object values
   return Array.from(launches.values());
 }
@@ -34,7 +33,7 @@ function addNewLaunch(launchData) {
   latestFlightNumber++;
 
   //then sets a new element with key and value to the launches map
-  //in the value i create object and spread the data 
+  //in the value i create object and spread the data
   launches.set(latestFlightNumber, {
     ...launchData,
     flightNumber: latestFlightNumber, //adding the incremented flight number
@@ -46,15 +45,13 @@ function addNewLaunch(launchData) {
 
 //aborting launch by changing their success and upcoming to false
 function abortLaunchById(id) {
-  const abort = launches.get(id); //gets the object associated to the object and upon change the original object gets modified 
+  const abort = launches.get(id); //gets the object associated to the object and upon change the original object gets modified
   abort.success = false;
   abort.upcoming = false;
 }
 
-
 //the launch model gets added to the launches map with a key and a value
 launches.set(launch.flightNumber, launch);
-
 
 module.exports = {
   getAllLaunches,
