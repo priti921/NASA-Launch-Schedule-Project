@@ -29,8 +29,8 @@ const launchesSchema = new mongoose.Schema({
   success: {
     type: Boolean,
     required: true,
-  }
+  },
 });
 
 //connecting launchesSchema with "launches" collection
-module.exports = mongoose.model('Launch', launchesSchema);
+module.exports = mongoose.model("Launch", launchesSchema);
