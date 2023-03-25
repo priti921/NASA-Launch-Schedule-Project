@@ -1,15 +1,15 @@
 const {
   getAllLaunches,
-  addNewLaunch,
+  scheduleNewLaunch,
   existsLaunchById,
   abortLaunchById,
 } = require("../../model/launches.model");
 
-function httpGetAllLaunches(req, res) {
-  return res.status(200).json(getAllLaunches());
+async function httpGetAllLaunches(req, res) {
+  return res.status(200).json(await getAllLaunches());
 }
 
-function httpPostNewLaunches(req, res) {
+async function httpPostNewLaunches(req, res) {
   const launch = req.body;
   if (
     !launch.mission ||
@@ -18,17 +18,17 @@ function httpPostNewLaunches(req, res) {
     !launch.launchDate
   ) {
     return res.status(400).json({
-      error: "bad request",
+      error: "invalid data provided, code: 400",
     });
   }
   launch.launchDate = new Date(launch.launchDate);
   if (isNaN(launch.launchDate)) {
     return res.status(404).json({
-      error: "bad request",
+      error: "invalid data provided, code: 404",
     });
   }
 
-  addNewLaunch(launch);
+  await scheduleNewLaunch(launch);
   console.log(launch);
   return res.status(201).json(launch);
 }

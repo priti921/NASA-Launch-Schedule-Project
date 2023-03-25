@@ -30,7 +30,7 @@ function existsLaunchById(id) {
 }
 
 async function getLatestFlightNumber() {
-  const latestLaunch = launchesDB.findOne().sort("-flightNumber");
+  const latestLaunch = await launchesDB.findOne().sort("-flightNumber");
 
   if (!latestLaunch) {
     return DEFAULT_FLIGHT_NUMBER;
@@ -73,21 +73,33 @@ async function saveLaunch(launch) {
   );
 }
 
-//adding new launches with some iterable data added before hand
-function addNewLaunch(launchData) {
-  //adds new id
-  latestFlightNumber++;
+async function scheduleNewLaunch(launch) {
+  const newFlightNumber = await getLatestFlightNumber() + 1;
 
-  //then sets a new element with key and value to the launches map
-  //in the value i create object and spread the data
-  launches.set(latestFlightNumber, {
-    ...launchData,
-    flightNumber: latestFlightNumber, //adding the incremented flight number
+  const newLaunch = Object.assign(launch, {
+    flightNumber: newFlightNumber,
     customer: ["ISRO", "NASA"],
     upcoming: true,
     success: true,
   });
+  await saveLaunch(newLaunch);
 }
+
+//adding new launches with some iterable data added before hand
+// function addNewLaunch(launchData) {
+//   //adds new id
+//   latestFlightNumber++;
+
+//   //then sets a new element with key and value to the launches map
+//   //in the value i create object and spread the data
+//   launches.set(latestFlightNumber, {
+//     ...launchData,
+//     flightNumber: latestFlightNumber, //adding the incremented flight number
+//     customer: ["ISRO", "NASA"],
+//     upcoming: true,
+//     success: true,
+//   });
+// }
 
 //aborting launch by changing their success and upcoming to false
 function abortLaunchById(id) {
@@ -101,7 +113,7 @@ function abortLaunchById(id) {
 
 module.exports = {
   getAllLaunches,
-  addNewLaunch,
+  scheduleNewLaunch,
   existsLaunchById,
   abortLaunchById,
 };
