@@ -1,5 +1,4 @@
 //it's better to use new Map() instead of {}
-const launches = new Map();
 
 const launchesDB = require("./launches.mongo");
 const planetsDB = require("./planets.mongo");
@@ -25,8 +24,10 @@ const launch = {
 saveLaunch(launch);
 
 //checks if the launch id exists
-function existsLaunchById(id) {
-  return launches.has(id);
+async function existsLaunchById(launchId) {
+  return await launchesDB.findOne({
+    flightNumber: launchId,
+  });
 }
 
 async function getLatestFlightNumber() {
@@ -62,7 +63,7 @@ async function saveLaunch(launch) {
     return new Error("invalid target planet");
   }
 
-  await launchesDB.updateOne(
+  await launchesDB.findOneAndUpdate(
     {
       flightNumber: launch.flightNumber,
     },
@@ -74,7 +75,7 @@ async function saveLaunch(launch) {
 }
 
 async function scheduleNewLaunch(launch) {
-  const newFlightNumber = await getLatestFlightNumber() + 1;
+  const newFlightNumber = (await getLatestFlightNumber()) + 1;
 
   const newLaunch = Object.assign(launch, {
     flightNumber: newFlightNumber,
@@ -102,10 +103,21 @@ async function scheduleNewLaunch(launch) {
 // }
 
 //aborting launch by changing their success and upcoming to false
-function abortLaunchById(id) {
-  const abort = launches.get(id); //gets the object associated to the object and upon change the original object gets modified
-  abort.success = false;
-  abort.upcoming = false;
+async function abortLaunchById(launchId) {
+  const aborted = await launchesDB.updateOne(
+    {
+      flightNumber: launchId,
+    },
+    {
+      success: false,
+      upcoming: false,
+    }
+  );
+
+  return aborted.matchedCount === 1 && aborted.modifiedCount === 1;
+  // const abort = launches.get(id); //gets the object associated to the object and upon change the original object gets modified
+  // abort.success = false;
+  // abort.upcoming = false;
 }
 
 //the launch model gets added to the launches map with a key and a value

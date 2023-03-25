@@ -2,6 +2,8 @@ const request = require("supertest");
 const app = require("../../app");
 
 describe("Test GET /launches", () => {
+
+
   test("It should return a 200 status code", async () => {
     const response = await request(app)
       .get("/launches")
@@ -10,7 +12,14 @@ describe("Test GET /launches", () => {
   });
 });
 
+
+
+
+
 describe("Test POST /launches", () => {
+
+
+   
   const completeLaunchData = {
     mission: "Test Mission",
     rocket: "Test Rocket",
@@ -30,6 +39,10 @@ describe("Test POST /launches", () => {
     launchDate: "invalid",
   };
 
+
+
+
+
   test("It should return a 201 status code", async () => {
     const response = await request(app)
       .post("/launches")
@@ -44,6 +57,10 @@ describe("Test POST /launches", () => {
     expect(requestDate).toBe(responseDate);
   });
 
+
+
+
+
   test("It should catch missing required properties", async () => {
     const response = await request(app)
       .post("/launches")
@@ -55,6 +72,10 @@ describe("Test POST /launches", () => {
       error: "bad request",
     });
   });
+
+
+
+
   test("It should catch invalid dates", async () => {
     const response = await request(app)
       .post("/launches")
