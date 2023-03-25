@@ -1,8 +1,13 @@
 //it's better to use new Map() instead of {}
 const launches = new Map();
 
+const launchesDB = require("./launches.mongo");
+const planetsDB = require("./planets.mongo");
+
 //flight id to keep track with
-let latestFlightNumber = 100;
+// let latestFlightNumber = 100;
+
+const DEFAULT_FLIGHT_NUMBER = 100;
 
 //demo data
 const launch = {
@@ -16,15 +21,56 @@ const launch = {
   success: true,
 };
 
+//saving first launch data
+saveLaunch(launch);
+
 //checks if the launch id exists
 function existsLaunchById(id) {
   return launches.has(id);
 }
 
+async function getLatestFlightNumber() {
+  const latestLaunch = launchesDB.findOne().sort("-flightNumber");
+
+  if (!latestLaunch) {
+    return DEFAULT_FLIGHT_NUMBER;
+  }
+
+  return latestLaunch.flightNumber;
+}
+
 //getting all launches from this model
-function getAllLaunches() {
+async function getAllLaunches() {
   //creates an array from launches object values
-  return Array.from(launches.values());
+  // return Array.from(launches.values());
+  return await launchesDB.find(
+    {},
+    {
+      _id: 0,
+      __v: 0,
+    }
+  );
+}
+
+//saving launches on mongodb
+async function saveLaunch(launch) {
+  const planet = await planetsDB.findOne({
+    keplerName: launch.target,
+  });
+
+  if (!planet) {
+    return new Error("invalid target planet");
+  }
+
+  await launchesDB.updateOne(
+    {
+      flightNumber: launch.flightNumber,
+    },
+    launch,
+    {
+      upsert: true,
+    }
+  );
 }
 
 //adding new launches with some iterable data added before hand
@@ -51,7 +97,7 @@ function abortLaunchById(id) {
 }
 
 //the launch model gets added to the launches map with a key and a value
-launches.set(launch.flightNumber, launch);
+// launches.set(launch.flightNumber, launch);
 
 module.exports = {
   getAllLaunches,

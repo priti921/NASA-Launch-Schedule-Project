@@ -42,7 +42,13 @@ function loadPlanets() {
 
 async function getAllPlanets() {
   //get all planets from mongodb
-  return await planets.find({});
+  return await planets.find(
+    {},
+    {
+      _id: 0,
+      __v: 0,
+    }
+  );
 }
 
 //checks if the planet exists, if does it inserts the data

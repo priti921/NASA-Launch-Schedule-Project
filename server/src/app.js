@@ -14,6 +14,8 @@ app.use(
   })
 );
 
+// app.use(cors());
+
 //logging
 app.use(morgan("combined"));
 
