@@ -7,7 +7,7 @@
 
  <h3 align="center">🚀 Launch your exoplanet space mission </h3>
 >  <p align="center">
-badges
+>badges
 > </p>
 
 </div>
@@ -21,10 +21,11 @@ badges
 - [🔮 Features](#-features)
 - [🚀 Getting Started](#-getting-started)
   - [✅ Dependencies](#-dependencies)
-    - [💻 Installation](#-installation)
-    - [🧪 Running Tests](#-running-tests)
-    - [📦 Deployment](#-deployment)
-- [🪪 License](#-license)
+  - [💻 Installation](#-installation)
+  - [🧪 Running Tests](#-running-tests)
+  - [📦 Deployment](#-deployment)
+- [🛠 Technologies Used](#-technologies-used)
+- [📂Data Sources](#-data-sources)
 
 
 ---
