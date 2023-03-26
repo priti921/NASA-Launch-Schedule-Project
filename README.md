@@ -19,6 +19,7 @@
 - [📍 Table of Contents](#-table-of-contents)
 - [🤖 Overview](#-overview)
 - [🔮 Features](#-features)
+- [🗺 System Design](#-system-design)
 - [🚀 Getting Started](#-getting-started)
   - [✅ Dependencies](#-dependencies)
   - [💻 Installation](#-installation)
