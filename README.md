@@ -5,9 +5,9 @@
     <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" width="100" />
     <br>NASA Launch Schedule Project</h1>
 
-> <h3 align="center">🚀 Launch your exoplanet space mission </h3>
+ <h3 align="center">🚀 Launch your exoplanet space mission </h3>
 >  <p align="center">
-
+badges
 > </p>
 
 </div>
@@ -38,6 +38,8 @@ This project is a full-stack web app built with React, Arwes, Node.js, Express.j
 
 ---
 
+## 🗺 System Design
+
 ## 🚀 Getting Started
 
 ### ✅ Dependencies
@@ -46,7 +48,7 @@ This project is a full-stack web app built with React, Arwes, Node.js, Express.j
 npm install
 ```
 
-### 💻 installation
+### 💻 Installation
 
 To run the project, follow these steps:
 
@@ -59,7 +61,13 @@ To run the project, follow these steps:
    npm run watch
    ```
 
-Deployment
+### 🧪 Running-tests
+
+```bash
+npm run test
+```
+
+### 📦 Deployment
 
 To deploy the app using a cluster, run the following command in the project directory:
 
@@ -77,14 +85,14 @@ The app has the following features:
   - View upcoming missions.
   - View mission history, including cancelled missions.
 
-Technologies Used
+## 🛠 Technologies Used
 
 The project uses the following technologies:
 
     Frontend: React, Arwes
     Backend: Node.js, Express.js, PM2, MongoDB
 
-Data Sources
+## 📂Data Sources
 
 The app uses NASA Kepler CSV data as its data source.
 Contribution
