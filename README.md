@@ -22,8 +22,8 @@
 - [🗺 System Design](#-system-design)
 - [🚀 Getting Started](#-getting-started)
   - [💻 Installation](#-installation)
-- [🧪 Running-tests](#-running-tests)
-- [📦 Deployment](#-deployment)
+  - [🧪 Running-tests](#-running-tests)
+  - [📦 Deployment](#-deployment)
 - [🔮Features](#features)
 - [🛠 Technologies Used](#-technologies-used)
 - [📂Data Sources](#data-sources)
@@ -99,13 +99,13 @@ npm run watch
 
 ---
 
-## 🧪 Running-tests
+### 🧪 Running-tests
 
 ```bash
 npm run test
 ```
 ---
-## 📦 Deployment
+### 📦 Deployment
 
 To deploy the app using a cluster, run the following command in the project directory:
 
