@@ -18,15 +18,15 @@
 
 - [📍 Table of Contents](#-table-of-contents)
 - [🤖 Overview](#-overview)
-- [🔮 Features](#-features)
 - [🗺 System Design](#-system-design)
 - [🚀 Getting Started](#-getting-started)
   - [✅ Dependencies](#-dependencies)
   - [💻 Installation](#-installation)
-  - [🧪 Running Tests](#-running-tests)
+  - [🧪 Running-tests](#-running-tests)
   - [📦 Deployment](#-deployment)
+- [🔮Features](#features)
 - [🛠 Technologies Used](#-technologies-used)
-- [📂Data Sources](#-data-sources)
+- [📂Data Sources](#data-sources)
 
 
 ---
@@ -41,6 +41,8 @@ This project is a full-stack web app built with React, Arwes, Node.js, Express.j
 ---
 
 ## 🗺 System Design
+
+<img src="./system%20design.png" />
 
 ## 🚀 Getting Started
 
