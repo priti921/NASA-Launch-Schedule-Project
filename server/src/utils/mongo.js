@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-require("dotenv").config(); //need to import dotenv to use env variables
+require('dotenv').config({ path: '.env.local' }); //need to import dotenv to use env variables
 
 const username = process.env.MONGO_USERNAME;
 const password = process.env.MONGO_PASSWORD;
