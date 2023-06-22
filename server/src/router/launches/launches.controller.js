@@ -29,7 +29,6 @@ async function httpPostNewLaunches(req, res) {
   }
 
   await scheduleNewLaunch(launch);
-  console.log(launch);
   return res.status(201).json(launch);
 }
 

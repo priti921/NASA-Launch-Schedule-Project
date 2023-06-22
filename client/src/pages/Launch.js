@@ -6,12 +6,12 @@ const Launch = (props) => {
   const selectorBody = useMemo(() => {
     return Array.isArray(props.planets)
       ? props.planets.map((planet, index) => {
-          return (
-            <option value={planet.keplerName} key={index}>
-              {planet.keplerName}
-            </option>
-          );
-        })
+        return (
+          <option value={planet.keplerName} key={index}>
+            {planet.keplerName}
+          </option>
+        );
+      })
       : [];
   }, [props.planets]);
 

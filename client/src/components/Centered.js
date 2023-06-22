@@ -4,6 +4,8 @@ const styles = () => ({
   root: {
     margin: "0 auto",
     maxWidth: 800,
+    display: "flex",
+    alignItems: "center"
   },
   "@media (max-width: 800px)": {
     root: {
